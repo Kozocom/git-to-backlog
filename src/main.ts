@@ -52,8 +52,12 @@ async function run() {
 }
 
 function parseIssueKey(title: string): Array<string> {
-  let re = /([A-Z][A-Z0-9_]+-\d+)/g;
-  return title.match(re) || [];
+  var id_ticket=(title.split(" ")[0]).split("-");
+    if( id_ticket[0]!=''&&id_ticket[0]==id_ticket[0].toUpperCase())
+    {
+	    return [title.split(" ")[0]]
+    }
+    return [];
 }
 
 run();
